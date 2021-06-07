@@ -19,7 +19,7 @@ void setup()
 void draw() 
 {
   //black background
-  background(0);
+  background(255);
   noStroke();
   fill(#912C67, 255);
   ellipse(100, 100, 20);
