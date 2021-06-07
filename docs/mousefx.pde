@@ -20,6 +20,8 @@ void draw()
 {
   //black background
   background(0);
+  fill(#912C67, 255);
+  circle(50, 50, 10);
   
   if (frameCount%10 == 0)  {
     theCircles[ currentCircle ] = new Circle(this, mouseX, mouseY);
