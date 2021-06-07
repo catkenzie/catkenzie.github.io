@@ -21,7 +21,9 @@ void draw()
   //black background
   background(0);
   
-  if (frameCount%10 == 0)
+  //  if (frameCount%10 == 0)
+
+  if (mousePressed)
   {
     theCircles[ currentCircle ] = new Circle(this, mouseX, mouseY);
     currentCircle++;
