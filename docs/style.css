@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Aldrich&display=swap');
-body {
+html, body {
   font-family: 'Aldrich', sans-serif;
   background-color: black;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  border: 0;
+  overflow: hidden;
+  display: block;
  /* line-height: 1.429;*/
 }
 h1{
@@ -9,9 +15,4 @@ h1{
 }
 p{
   color: white;
-}
-
-#aamap{
-  width: 1000px; 
-  height: 700px;
 }
