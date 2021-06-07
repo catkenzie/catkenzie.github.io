@@ -22,7 +22,7 @@ void draw()
   background(0);
   noStroke();
   fill(#912C67, 255);
-  circle(100, 100, 20);
+  ellipse(100, 100, 20);
   
   if (frameCount%10 == 0)  {
     theCircles[ currentCircle ] = new Circle(this, mouseX, mouseY);
@@ -125,7 +125,7 @@ class Circle
     // use our reference to the canvas to draw our ball
     this.canvas.noStroke();
     this.canvas.fill(htmlColor, alpha);
-    this.canvas.circle(x,  y, size);
+    this.canvas.ellipse(x,  y, size);
   }
   
   // fade method - allows a ball to fade out of existence
