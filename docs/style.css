@@ -16,3 +16,10 @@ h1{
 p{
   color: white;
 }
+
+#c{
+  width: 500px;
+  margin: auto;
+  border: 5px solid white;
+  display: block;
+}
