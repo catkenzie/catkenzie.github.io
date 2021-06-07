@@ -12,14 +12,14 @@ void setup()
 {
   // general setup
   size (500,500);
-  frameRate(40);
+  //frameRate(40);
   smooth();
 }
 
 void draw() 
 {
   //black background
-  background(0);
+  background(255);
   
   //  if (frameCount%10 == 0)
 
