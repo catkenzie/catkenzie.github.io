@@ -19,17 +19,13 @@ void setup()
 void draw() 
 {
   //black background
-  background(255);
+  background(0);
   
-  //  if (frameCount%10 == 0)
-
-  if (mousePressed)
-  {
+  if (frameCount%10 == 0)  {
     theCircles[ currentCircle ] = new Circle(this, mouseX, mouseY);
     currentCircle++;
     
-    if (numCircles < theCircles.length)
-    {
+    if (numCircles < theCircles.length) {
       numCircles++;
     }
     
