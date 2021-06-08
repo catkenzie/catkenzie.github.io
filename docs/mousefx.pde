@@ -21,7 +21,7 @@ void draw()
   //black background
   background(255);
   noStroke();
-  fill(#912C67, 255);
+  fill(10, 255);
   ellipse(100, 100, 20);
   
   if (frameCount%10 == 0)  {
