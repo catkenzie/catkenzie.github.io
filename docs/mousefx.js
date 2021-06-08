@@ -1,44 +1,129 @@
-        
-// create an array to store the circles
-Circle [] theCircles = new Circle[100];
+var theCircles = new Array(100);
+var maxCircles = 100;
+var numCircles = 0;
+var currentCircle = 0;
+var colorScheme = [
+  [86, 128, 182], 
+  [10, 68, 144], 
+  [93, 34, 146], 
+  [164, 92, 184],
+  [207, 131, 229], 
+  [145, 44, 103], 
+  [236, 59, 234], 
+  [31, 127, 175], 
+  [175, 31, 135], 
+  [184, 83, 100], 
+  [84, 82, 252] 
+];
 
-int maxCircles = 100;
-int numCircles = 0;
-int currentCircle = 0;
-color [] colorScheme = {#5680B6, #0A4590, #5D2292, #A45CB8, #CF83E5, #912C67, #EC3BEA, #1F7FAF, #AF1F87, #B85364, #5452FC };
-
-
-void setup() 
+class Circle
 {
-  // general setup
-  size (500,500);
-  //frameRate(40);
-  smooth();
-}
+  constructor( xpos,  ypos)
+  {
+    // store x and y
+    this.x = xpos;
+    this.y = ypos;
+    
+    // randomize our size
+    this.size = random(5, 15);
+    
+    // randomize our color
+    
+    this.colorFill = random(0,11);
+    this.alpha = random(150,255);
+    
+    // randomize our speed
+    this.speedX = random(-1, 1);
+    this.speedY = random(-1, 1);
 
-void draw() 
-{
-  //black background
-  background(255);
-  noStroke();
-  fill(10, 255);
-  ellipse(100, 100, 20);
-  
-  if (frameCount%10 == 0)  {
-    theCircles[ currentCircle ] = new Circle(this, mouseX, mouseY);
-    currentCircle++;
+    //make the colors
+    this.red = colorScheme[floor(this.colorFill)][0];
+    this.green = colorScheme[floor(this.colorFill)][1];
+    this.blue = colorScheme[floor(this.colorFill)][2];
+  }
+
+  move()  {
+    // update position based on speed
+    this.x += this.speedX;
+    this.y += this.speedY;
     
-    if (numCircles < theCircles.length) {
-      numCircles++;
-    }
-    
-    if (currentCircle >= theCircles.length)
+    // bounce back if it hits the edge
+    if (this.x > displayWidth)
     {
-      currentCircle = 0;
+      this.x = width;
+      this.speedX *= -1;
+    }
+    if (this.y > displayHeight)
+    {
+      this.y = height;
+      this.speedY *= -1;
+    }
+    if (this.x < 0)
+    {
+      this.x = 0;
+      this.speedX *= -1;
+    }
+    if (this.y < 0)
+    {
+      this.y = 0;
+      this.speedY *= -1;
     }
   }
   
-  for (int i = 0; i < numCircles; i++)
+  
+  // display the cirlces
+  display(){
+    let ci = floor(this.colorFill);
+    this.red = colorScheme[ci][0];
+    this.green = colorScheme[ci][1];
+    this.blue = colorScheme[ci][2];
+ 
+    noStroke();
+    fill(this.red, this.green, this.blue, this.alpha);
+    circle(this.x,  this.y, this.size);
+  }
+  
+  // fade method - allows a ball to fade out of existence
+  fade(){
+    if (this.alpha > 0)
+    {
+      this.alpha -= 4;
+    }
+    else
+    {
+      this.alpha = 0;
+    }
+  }
+  
+
+}
+
+function setup() 
+{
+  // general setup
+  createCanvas(displayWidth,displayHeight);
+  frameRate(30);
+  smooth();
+}
+
+function draw() 
+{
+  //black background
+  background(0); 
+  if (frameCount%10 == 0)  {
+      theCircles[ currentCircle ] = new Circle(mouseX, mouseY);
+      currentCircle++;
+    if (numCircles < maxCircles) {
+      numCircles++;
+    }
+    if (currentCircle >= maxCircles)
+    {
+      currentCircle = 0;
+      loop = true;
+    }
+  }
+  
+  for (var i = 0; i < numCircles; i++)
   {
     theCircles[i].fade();
     theCircles[i].move();
@@ -47,98 +132,3 @@ void draw()
 }
 
 
-
-class Circle
-{
-  // instance vars
-  private float x;
-  private float y;
-  private float size;
-  private float red;  
-  private float green;
-  private float blue;
-  private float colorFill;
-  
-  private float alpha;
-  private float speedX;
-  private float speedY;
-  
-  // store a reference to the canvas for html
-  private PApplet canvas;
-  
-  Circle(PApplet canvas, float x, float y)
-  {
-    // store a ref to the canvas
-    this.canvas = canvas;
-  
-    // store x and y
-    this.x = x;
-    this.y = y;
-    
-    // randomize our size
-    size = this.canvas.random(5,20);
-    
-    // randomize our color
-    
-    colorFill = this.canvas.random(0,11);
-    alpha = this.canvas.random(100,255);
-    
-    // randomize our speed
-    speedX = this.canvas.random(-2, 2);
-    speedY = this.canvas.random(-2, 2);
-  }
-  
-  // move our ball
-  void move()
-  {
-    // update position based on speed
-    x += speedX;
-    y += speedY;
-    
-    // bounce back if it hits the edge
-    if (x > width)
-    {
-      x = width;
-      speedX *= -1;
-    }
-    if (y > height)
-    {
-      y = height;
-      speedY *= -1;
-    }
-    if (x < 0)
-    {
-      x = 0;
-      speedX *= -1;
-    }
-    if (y < 0)
-    {
-      y = 0;
-      speedY *= -1;
-    }
-  }
-  
-  // display the cirlces
-  void display()
-  {
-    color htmlColor = colorScheme[floor(colorFill)];
-    // use our reference to the canvas to draw our ball
-    this.canvas.noStroke();
-    this.canvas.fill(htmlColor, alpha);
-    this.canvas.ellipse(x,  y, size);
-  }
-  
-  // fade method - allows a ball to fade out of existence
-  void fade()
-  {
-    if (alpha > 0)
-    {
-      alpha -= 2;
-    }
-    else
-    {
-      alpha = 0;
-    }
-  }
-  
-}
