@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 
+<!-- 
+    templates:
+    https://codepen.io/web-tiki/pen/ObdywQ
+
+-->
+
 <html lang="en_US">
 <head>
     <title> yo yo yo </title>
@@ -7,60 +13,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type = "text/css" href="style.css">
-   <!--    <script type="text/javascript" src="processing.js"></script>  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.0/processing.min.js"></script> -->
-    
     <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="mousefx.js"></script>
+    <script src="scroll.js"></script>
 
+    
    
 </head>
 
 <body>
+    <div id="wrap">
+        <div class="bg">
+            <main > </main> 
+            <h1 class="layer1"><br> Cat Kenzie</h1>
+            <h2 class="layer1">Embedded Software Engineer</h2>
+        </div>
+        <div class="cont">
+            <div class="ata"> 
+                <h2> ABOUT ME </h2>
+                <hr > 
+                <img src="me.jpg"> 
+                <p> 
+                    Hi, my name is Cat Kenzie! I’m a Firmware Engineer who recently relocated to the San Jose area. I’m excited by facing new challenges, connecting with people, and discovering more about the world each day. 
+                    <br><br>
+                    The world makes sense to me when I have a deep understanding of how things operate, so I appreciate the low level approach firmware engineering takes to solve problems.
+                    <br><br>
+                    My studies focused on <b> embedded systems, signal processing, and control systems. </b> I have experience collaboratively designing and developing embedded systems using <b> C, Verilog HDL, ARM and Python </b> to control ADC/DACs, motors, ultrasonic sensors, speakers, resistive touchscreens, among other peripherals. 
+                    <br><br> 
+                    Currently, I work extensively using bash commands and postgreSQL queries and I've been learning the basics of HTML, CSS, and JavaScript in my free time. 
+                    <br><br>
+                    I’m looking for a role to use my toolbox of skills to create specialized technological solutions that benefit others and elevate the collective.
+                    When I am away from a screen you will find me learning skateboard tricks, testing out vegetarian recipes, and sharing my love of electronic music with others.
+                    <br><br>
+                    
+                </p>
 
-    <h1 class> Hi welcome to my website </h1>
-    <main> </main>
-    <canvas id='c'  style='width:500px;' data-processing-sources="mousefx.js"></canvas>
-        <!--<script>
-            (function() {
-                var
-                // Obtain a reference to the canvas element using its id.
-                htmlCanvas = document.getElementById('c'),
-                // Obtain a graphics context on the canvas element for drawing.
-                context = htmlCanvas.getContext('2d');
+            </div>
 
-               // Start listening to resize events and draw canvas.
-               initialize();
+            <div class="education">
+                <h2>EDUCATION</h2>
+                <hr > 
+                <p>
+                    University of Michigan, College of Engineering  |  Ann Arbor, MI  |  2016-2020
+                    <br>B.S.E., Computer Engineering
+                    <br>Minor in Music
 
-               function initialize() {
-                   // Register an event listener to call the resizeCanvas() function 
-                   // each time the window is resized.
-                   window.addEventListener('resize', resizeCanvas, false);
-                   // Draw canvas border for the first time.
-                   resizeCanvas();
-                }
+                    <br><br>
+                    Universidad de Navarra, Tecnun  |  San Sebastian, Spain  |  Summer 2017
+                    <br>Study abroad program 
 
-                // Display custom canvas. In this case it's a blue, 5 pixel 
-                // border that resizes along with the browser window.
-                function redraw() {
-                   context.strokeStyle = 'blue';
-                   context.lineWidth = '5';
-                   context.strokeRect(0, 0, window.innerWidth, window.innerHeight);
-                }
+                    <br><br>
+                </p>
+            
+            </div>
 
-                // Runs each time the DOM window resize event fires.
-                // Resets the canvas dimensions to match window,
-                // then draws the new borders accordingly.
-                function resizeCanvas() {
-                    htmlCanvas.width = window.innerWidth;
-                    htmlCanvas.height = window.innerHeight;
-                    redraw();
-                }
-            })();
+            <div class="projects">
+                <h2>PROJECTS</h2>
+                <hr>
+                <p>
+                    Sed bibendum ante ac metus hendrerit, nec commodo tortor venenatis. Pellentesque porta eros non eros cursus, vitae commodo sapien facilisis. Praesent sit amet volutpat lacus. Nullam sed quam ac dolor blandit lacinia. Ut euismod turpis sit amet libero pulvinar, non aliquet lacus bibendum. Nullam libero massa, facilisis sed neque id, porta fringilla eros. Curabitur vestibulum nisi nec tempor tempor. Sed fermentum mauris diam, eu volutpat magna tempus et. Ut semper dapibus purus eget ullamcorper. Aenean varius rutrum purus id congue. Mauris sit amet turpis ornare, pharetra ex et, porta lorem. In hac habitasse platea dictumst.
+                    <br><br>
+                </p>
 
-            </script> -->
+            </div>
+            <div class="contact">
+                <h2>CONTACT ME</h2>
+                <p>
+                    Nulla sed pellentesque nibh, eu consectetur neque. Curabitur eu risus at felis sagittis blandit. Nunc non massa non massa mattis semper. Curabitur dapibus tortor velit, id tincidunt ligula rutrum sed. Quisque feugiat consequat molestie. Curabitur lobortis neque ac porta imperdiet. Sed malesuada nibh sit amet magna commodo, sed bibendum turpis vestibulum. Suspendisse vel rutrum dolor, sed bibendum turpis. Morbi condimentum fermentum urna id venenatis.
+                    <br><br>
+                </p>
 
-
-
+            </div>
+      </div>
+    </div>
 </body>
 </html>

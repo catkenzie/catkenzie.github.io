@@ -1,25 +1,107 @@
 @import url('https://fonts.googleapis.com/css?family=Aldrich&display=swap');
-html, body {
+
+*{margin:0;padding:0;}
+
+html{
   font-family: 'Aldrich', sans-serif;
-  background-color: black;
-  width: 100%;
+  background: black;
+  width: 99vw;
   height: 100%;
-  margin: 6px;
-  border: 0;
-  overflow: hidden;
   display: block;
- /* line-height: 1.429;*/
+  margin: 0;
 }
-h1{
+
+body {
+  overflow-x: hidden;
+}
+
+.bg h2{
+  position:absolute;
+  top:47%;left:0;
+  width:100%;
+  font-size:40px;
+  text-align:center;
   color: white;
+
 }
-p{
+.bg{
+  position:relative;z-index:1;
+}
+
+.bg h1{
+  position:absolute;
+  top:23%;left:0;
+  width:100%;
+  font-size:100px;
+  text-align:center;
   color: white;
 }
 
-#c{
-  width: 500px;
-  height: 500px;
-  margin: auto;
-  display: block;
+.cont{
+  position:relative; z-index:2;
+  font-size:27px;
+  margin:5% auto;
+
+}
+
+.cont *{
+  max-width:device-width;
+ 
+}
+
+.cont h2{
+  font-weight: bold;
+  font-size: 28px;
+  color:white;
+  text-align: center;
+  padding : 2% 0 3% 0;
+
+
+}
+
+.cont hr{
+  padding: none;
+  text-align:center;
+  color:lightgray; 
+  
+}
+img{
+  width: 350px;
+  height: 350px;
+  padding: 3% 3% 2% 3% ;
+  float: left;
+}
+.ata {
+  background:linear-gradient(rgb(86, 128, 182) 90%, rgb(84, 82, 252) ) ;
+  padding : 3% 3% 3% 3%;
+
+}
+
+.education{
+  background:linear-gradient(rgb(84, 82, 252) 85%, rgb(93, 34, 146) ) ;
+  padding : 3% 3% 3% 3%;
+  position: relative;
+  
+}
+
+
+.projects{
+  background:linear-gradient(rgb(93, 34, 146) 85%,rgb(175, 31, 135) ) ;
+  padding : 3% 3% 3% 3%;
+
+}
+
+.contact{
+  background:rgb(175, 31, 135);
+  padding : 3% 3% 3% 3%;
+
+}
+
+p{
+  color: white;
+  line-height: 1.2;
+  padding: 3% 3% 3% 3%;
+  font-weight: lighter;
+  font-size: 20px;
+  font-family: Verdana,sans-serif;
 }

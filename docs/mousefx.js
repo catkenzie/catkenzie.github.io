@@ -1,7 +1,17 @@
+//control parameters for the circles' movement
+var maxSpeed = .8;
+var fadeAlpha = 2;
+var frames = 40;
+var minSize = 7;
+var maxSize = 20;
+
+//variables to hold the ircle information
 var theCircles = new Array(100);
 var maxCircles = 100;
 var numCircles = 0;
 var currentCircle = 0;
+
+//rgb values for the colorscheme
 var colorScheme = [
   [86, 128, 182], 
   [10, 68, 144], 
@@ -16,6 +26,7 @@ var colorScheme = [
   [84, 82, 252] 
 ];
 
+
 class Circle
 {
   constructor( xpos,  ypos)
@@ -25,16 +36,15 @@ class Circle
     this.y = ypos;
     
     // randomize our size
-    this.size = random(5, 15);
+    this.size = random(minSize, maxSize);
     
     // randomize our color
-    
     this.colorFill = random(0,11);
     this.alpha = random(150,255);
     
     // randomize our speed
-    this.speedX = random(-1, 1);
-    this.speedY = random(-1, 1);
+    this.speedX = random(-1*maxSpeed, maxSpeed);
+    this.speedY = random(-1*maxSpeed, maxSpeed);
 
     //make the colors
     this.red = colorScheme[floor(this.colorFill)][0];
@@ -71,7 +81,7 @@ class Circle
   }
   
   
-  // display the cirlces
+  // draw the circle 
   display(){
     let ci = floor(this.colorFill);
     this.red = colorScheme[ci][0];
@@ -83,11 +93,11 @@ class Circle
     circle(this.x,  this.y, this.size);
   }
   
-  // fade method - allows a ball to fade out of existence
+  //fade into nothing
   fade(){
     if (this.alpha > 0)
     {
-      this.alpha -= 4;
+      this.alpha -= fadeAlpha;
     }
     else
     {
@@ -98,17 +108,19 @@ class Circle
 
 }
 
+//functions to setup the canvas and to draw on it
 function setup() 
 {
   // general setup
-  createCanvas(displayWidth,displayHeight);
-  frameRate(30);
+  createCanvas(displayWidth, displayHeight);
+  frameRate(frames);
   smooth();
 }
 
+//loops forever w time inbetween function calls based on the framerate
 function draw() 
 {
-  //black background
+  //set background color 0-black, 255-white
   background(0); 
   if (frameCount%10 == 0)  {
       theCircles[ currentCircle ] = new Circle(mouseX, mouseY);
@@ -116,10 +128,11 @@ function draw()
     if (numCircles < maxCircles) {
       numCircles++;
     }
-    if (currentCircle >= maxCircles)
+    if (numCircles >= maxCircles)
     {
       currentCircle = 0;
-      loop = true;
+      numCircles =0;
+      //loop = true;
     }
   }
   
