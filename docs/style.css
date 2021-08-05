@@ -2,19 +2,34 @@
 
 *{margin:0;padding:0;}
 
+
 html{
-  font-family: 'Aldrich', sans-serif;
   background: black;
   width: 99vw;
   height: 100%;
   display: block;
   margin: 0;
+  font-family: 'Aldrich', sans-serif;
+
 }
 
 body {
   overflow-x: hidden;
 }
 
+.bg{
+  position:relative;
+  z-index:1;
+  background: whites;
+}
+.bg h1{
+  position:absolute;
+  top:23%;left:0;
+  width:100%;
+  font-size:100px;
+  text-align:center;
+  color: white;
+}
 .bg h2{
   position:absolute;
   top:47%;left:0;
@@ -24,71 +39,109 @@ body {
   color: white;
 
 }
-.bg{
-  position:relative;z-index:1;
-}
-
-.bg h1{
-  position:absolute;
-  top:23%;left:0;
-  width:100%;
-  font-size:100px;
-  text-align:center;
-  color: white;
-}
 
 .cont{
   position:relative; z-index:2;
-  font-size:27px;
-  margin:5% auto;
+  margin:0 0 0 0;
+  color: white;
 
 }
-
+.cont p{
+  font-family: 'Helvetica Neue', sans-serif;
+}
 .cont *{
   max-width:device-width;
  
 }
-
 .cont h2{
+  clear: both;
   font-weight: bold;
-  font-size: 28px;
+  font-size: 32px;
   color:white;
   text-align: center;
+  letter-spacing: 3px;
   padding : 2% 0 3% 0;
-
+}
+.cont h3{
+  font-weight: normal;
+  font-size: 26px;
+  color:white;
+  text-align: left;
+  margin : 2% 0 1% 3%;
+  color: rgb(228, 228, 228);
+  letter-spacing: 1.5px;
 
 }
-
 .cont hr{
-  padding: none;
   text-align:center;
-  color:lightgray; 
-  
+  color:white; 
+  margin: 2% 0 2% 0;
 }
-img{
+
+.ata {
+  background:linear-gradient(rgb(75, 114, 165) 90%, rgb(73, 71, 201) ) ;
+  padding : 3% 3% 3% 3%;
+
+}
+.ata img{
   width: 350px;
   height: 350px;
-  padding: 3% 3% 2% 3% ;
+  margin: 3% 4% 2% 3% ;
   float: left;
-}
-.ata {
-  background:linear-gradient(rgb(86, 128, 182) 90%, rgb(84, 82, 252) ) ;
-  padding : 3% 3% 3% 3%;
+  box-shadow: 15px 15px rgba(0,0,0,.15);
+  transition: all .4s ease;
 
 }
 
 .education{
-  background:linear-gradient(rgb(84, 82, 252) 85%, rgb(93, 34, 146) ) ;
+  background:linear-gradient(rgb(73, 71, 201)  85%, rgb(83, 32, 128) ) ;
   padding : 3% 3% 3% 3%;
-  position: relative;
-  
+
+}
+.education p{
+  margin: 2% 20% 0 15%;
+  padding: 0 0 0 0;
+  line-height: 1.4;
+}
+.education h4{
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size:20px;
+  margin: 5% 15% 1% 15%;
+  font-weight: bold;
+  letter-spacing: .7px;
+  line-height: 1.5;
 }
 
 
 .projects{
-  background:linear-gradient(rgb(93, 34, 146) 85%,rgb(175, 31, 135) ) ;
+  background:linear-gradient(rgb(83, 32, 128)  95%,rgb(175, 31, 135) ) ;
   padding : 3% 3% 3% 3%;
 
+}
+
+.projects h3{
+  clear: both;
+  margin: 5% 0 1% 3%;
+}
+.projects img{
+  width: 350px;
+  height: 200px;
+  padding: 0 0 0 0;
+  margin: 1% 5% 5% 3%;
+  float: left;
+  position: relative;
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+  box-shadow: 15px 15px rgba(0,0,0,.15);
+  transition: all .4s ease;
+}
+
+img:hover{
+  border-radius: 50% 50% 50% 50% / 5% 5% 5% 5% ;
+  box-shadow: 10px 10px rgba(0,0,0,.25);
+}
+img.nolink:hover{
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+  box-shadow: 15px 15px rgba(0,0,0,.15);
 }
 
 .contact{
@@ -98,10 +151,28 @@ img{
 }
 
 p{
-  color: white;
-  line-height: 1.2;
-  padding: 3% 3% 3% 3%;
+  color: rgb(228, 228, 228);
+  line-height: 1.3;
+  padding: 3% 3% 2% 3%;
   font-weight: lighter;
-  font-size: 20px;
-  font-family: Verdana,sans-serif;
+  font-size: 18px;
+}
+
+
+img.logo{
+  width: 75px; 
+  height: 75px; 
+  border-radius: 50%;
+  float: left;
+  display: block;
+  margin-left: -100px;
+  margin-top: 0;
+  border: 2px solid blue;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+img.logo:hover{
+  border-radius: none ;
+  box-shadow: none;
 }
